@@ -1,11 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const Item = require("./models/items");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-const mongodb =
-  "mongodb+srv://siva:sai@cluster0.rkis5.mongodb.net/item-database?retryWrites=true&w=majority";
+const mongodb = process.env.MONGODB_URL;
 mongoose
   .connect(mongodb)
   .then(() => {
